@@ -20,10 +20,10 @@ namespace net_games
 		std::pair<Vec<T>*, Vec<T>*> twoLargest = GetTwoLargest(v1, v2, v3);
 
 		Vec<T>* vp = twoLargest.first;
-		this->sorter_->QSort(vp->begin(), 0, vp->size() - 1);
-
 		Vec<T>* vp2 = twoLargest.second;
-		this->sorter_->QSort(vp2->begin(), 0, vp2->size() - 1);
+
+		Vec<T> dummy{};
+		this->sorter_->Compute(*vp, *vp2, dummy);
 
 		BaseVectorIntersector<T>::Intersect(*vp, *vp2);
 	}

@@ -16,9 +16,9 @@ namespace net_games
 	template<typename T>
 	void ThreeVectorIntersector<T>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
 	{
-		this->sorter_->QSort(v1.begin(), 0, v1.size() - 1);
-		this->sorter_->QSort(v2.begin(), 0, v2.size() - 1);
-		this->sorter_->QSort(v3.begin(), 0, v3.size() - 1);
+		this->sorter_->Compute(v1, v2, v3);
+
+		Intersect(v1, v2, v3);
 	}
 
 	template<typename T>
@@ -33,6 +33,34 @@ namespace net_games
 		std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), std::inserter(s0, s0.begin()));
 		// s0 ∩ s2
 		std::set_intersection(s0.begin(), s0.end(), s3.begin(), s3.end(), std::back_inserter(this->out_));
+	}
+
+	template<typename T>
+	void ThreeVectorIntersector<T>::Intersect(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
+	{
+		VecIter<T> first = v1.begin(), second = v2.begin(), third = v3.begin();
+		VecIter<T> lFirst = v1.end(), lSecond = v2.end(), lThird = v3.end();
+
+		while (first != lFirst && second != lSecond && third != lThird)
+		{
+			if (*first == *second && *second == *third)
+			{
+				this->out_.push_back(*first);
+				++first, ++second, ++third;
+			}
+			else if (*first < *second)
+			{
+				++first;
+			}
+			else if (*second < *third)
+			{
+				++second;
+			}
+			else
+			{
+				++third;
+			}
+		}
 	}
 
 	template ThreeVectorIntersector<int>::ThreeVectorIntersector();

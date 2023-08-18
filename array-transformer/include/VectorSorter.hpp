@@ -16,9 +16,5 @@ namespace net_games
 		int Partition(VecIter<T> it, int from, int to);
 
 		void Swap(VecIter<T> a, VecIter<T> b);
-
-		// Let intersectors use QSort function.
-		template<typename U> friend class TwoVectorIntersector;
-		template<typename U> friend class ThreeVectorIntersector;
 	};
 }
