@@ -18,21 +18,33 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\JaggedArray.cpp">
+    <ClCompile Include="src\VectorSorter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sorter.cpp">
+    <ClCompile Include="src\TwoVectorIntersector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TheeVectorIntersector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BaseVectorIterator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\JaggedArray.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ArrayTransformer.hpp">
+    <ClInclude Include="include\VectorTransformer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sorter.hpp">
+    <ClInclude Include="include\VectorSorter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BaseVectorIntersector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TwoVectorIntersector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ThreeVectorIntersector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

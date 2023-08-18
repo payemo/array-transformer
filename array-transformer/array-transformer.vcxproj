@@ -130,12 +130,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Sorter.cpp" />
-    <ClInclude Include="include\ArrayTransformer.hpp" />
-    <ClInclude Include="include\JaggedArray.hpp" />
+    <ClCompile Include="src\BaseVectorIterator.cpp" />
+    <ClCompile Include="src\TheeVectorIntersector.cpp" />
+    <ClCompile Include="src\TwoVectorIntersector.cpp" />
+    <ClCompile Include="src\VectorSorter.cpp" />
+    <ClInclude Include="include\TwoVectorIntersector.hpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\JaggedArray.cpp" />
-    <ClInclude Include="include\Sorter.hpp" />
+    <ClInclude Include="include\BaseVectorIntersector.hpp" />
+    <ClInclude Include="include\ThreeVectorIntersector.hpp" />
+    <ClInclude Include="include\VectorSorter.hpp" />
+    <ClInclude Include="include\VectorTransformer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
