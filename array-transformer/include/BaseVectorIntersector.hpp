@@ -19,8 +19,5 @@ namespace net_games
 	protected:
 		VectorSorter<T>* sorter_{ nullptr };
 		Vec<T> out_{};
-
-	protected:
-		void Intersect(Vec<T>& v1, Vec<T>& v2);
 	};
 }

@@ -25,7 +25,7 @@ namespace net_games
 		Vec<T> dummy{};
 		this->sorter_->Compute(*vp, *vp2, dummy);
 
-		BaseVectorIntersector<T>::Intersect(*vp, *vp2);
+		Intersect(*vp, *vp2);
 	}
 
 	template<typename T>
@@ -43,6 +43,29 @@ namespace net_games
 	}
 
 	// PROTECTED ROUTINE
+
+	template<typename T>
+	void TwoVectorIntersector<T>::Intersect(Vec<T>& v1, Vec<T>& v2)
+	{
+		VecIter<T> first = v1.begin(), fLast = v1.end();
+		VecIter<T> second = v2.begin(), sLast = v2.end();
+
+		while (first != fLast && second != sLast)
+		{
+			if (*first < *second)
+			{
+				++first;
+			}
+			else
+			{
+				if (!(*second < *first))
+				{
+					this->out_.push_back(*first++);
+				}
+				++second;
+			}
+		}
+	}
 
 	template<typename T>
 	std::pair<Vec<T>*, Vec<T>*> TwoVectorIntersector<T>::GetTwoLargest(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) const
