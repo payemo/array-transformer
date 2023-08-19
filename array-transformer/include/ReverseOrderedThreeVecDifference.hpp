@@ -1,11 +1,15 @@
 #pragma once
 
+#include <list>
 #include "VectorSorter.hpp"
 
 namespace net_games
 {
 	template<typename T> using Set = typename std::set<T>;
-	template<typename T> using SetIter = typename std::set<T>::iterator;
+	template<typename T> using ConstSetIter = typename std::set<T>::const_iterator;
+
+	template<typename T> using List = typename std::list<T>;
+	template<typename T> using ConstListIter = typename std::list<T>::const_iterator;
 
 	template<typename T>
 	class ReverseOrderedThreeVecDifference : public VectorTransformer<T>
@@ -16,13 +20,14 @@ namespace net_games
 		void Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) override;
 		void Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3);
 
-		inline typename std::set<T>::reverse_iterator Result() { return out_.rbegin(); }
+		inline const List<T>& Result() const { return out_; }
 
 	protected:
-		Set<T> Merge(const Set<T>& v1, const Set<T>& v2);
-		void FillUnique(SetIter<T> first, SetIter<T> last, const Set<T>& s1, const Set<T>& s2, const Set<T>& s3);
+		Set<T> SymmetricDiff(const Set<T>& v1, const Set<T>& v2);
+		void FillUniques(Set<T> diff, const Set<T>& s1, const Set<T>& s2, const Set<T>& s3);
 
 	private:
-		Set<T> out_;
+		// use O(1) for insertion
+		List<T> out_;
 	};
 }
