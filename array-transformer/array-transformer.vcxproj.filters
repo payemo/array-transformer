@@ -30,6 +30,9 @@
     <ClCompile Include="src\BaseVectorIterator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ReverseOrderedThreeVecDifference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\VectorTransformer.hpp">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ThreeVectorIntersector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ReverseOrderedThreeVecDifference.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

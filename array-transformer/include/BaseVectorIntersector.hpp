@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include "VectorSorter.hpp"
 
 namespace net_games
@@ -19,5 +20,8 @@ namespace net_games
 	protected:
 		VectorSorter<T>* sorter_{ nullptr };
 		Vec<T> out_{};
+
+		/*template<typename U>
+		friend class ReverseOrderedThreeVecDifference;*/
 	};
 }
