@@ -4,15 +4,15 @@ namespace net_games
 {
 	// PUBLIC DEFINITIONS
 
-	template<typename T>
-	BaseVectorIntersector<T>::BaseVectorIntersector(VectorSorter<T>* sorter)
+	template<typename T, class P>
+	BaseVectorIntersector<T, P>::BaseVectorIntersector(VectorSorter<T, P>* sorter)
 		: sorter_(sorter)
 	{
 		//this->sorter_ = &sorter;
 	}
 
-	template<typename T>
-	BaseVectorIntersector<T>::~BaseVectorIntersector()
+	template<typename T, class P>
+	BaseVectorIntersector<T, P>::~BaseVectorIntersector()
 	{
 		if (sorter_ != nullptr)
 		{

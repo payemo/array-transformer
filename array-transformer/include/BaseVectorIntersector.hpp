@@ -5,21 +5,19 @@
 
 namespace net_games
 {
-	template<typename T>
-	class BaseVectorIntersector : public ArrayTransformer<T>
+	template<typename T, class P = Printer<T>>
+	class BaseVectorIntersector : public ArrayTransformer<T, P>
 	{
 	public:
-		BaseVectorIntersector(VectorSorter<T>* sorter);
+		BaseVectorIntersector(VectorSorter<T, P>* sorter);
 		virtual ~BaseVectorIntersector();
 
-		void Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) = 0;
+		void Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P print) = 0;
 		virtual void Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) = 0;
 
 	protected:
-		VectorSorter<T>* sorter_{ nullptr };
+		VectorSorter<T, P>* sorter_{ nullptr };
+		// Well, since the task is to print it seems like this member is redundand.
 		Vec<T> out_{};
-
-		/*template<typename U>
-		friend class ReverseOrderedThreeVecDifference;*/
 	};
 }

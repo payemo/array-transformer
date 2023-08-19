@@ -5,8 +5,8 @@
 
 namespace net_games
 {
-	template<typename T>
-	void ReverseOrderedThreeVecDifference<T>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
+	template<typename T, class P>
+	void ReverseOrderedThreeVecDifference<T, P>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P print)
 	{
 		Set<T> s1(v1.begin(), v1.end());
 		Set<T> s2(v2.begin(), v2.end());
@@ -16,10 +16,12 @@ namespace net_games
 		Set<T> diff2 = SymmetricDiff(diff1, s3);
 
 		FillUniques(diff2, s1, s2, s3);
+
+		print(this->out_);
 	}
 
-	template<typename T>
-	void ReverseOrderedThreeVecDifference<T>::Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
+	template<typename T, class P>
+	void ReverseOrderedThreeVecDifference<T, P>::Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
 	{
 		Set<T> s1(v1.begin(), v1.end());
 		Set<T> s2(v2.begin(), v2.end());
@@ -33,8 +35,8 @@ namespace net_games
 		FillUniques(diff2, s1, s2, s3);
 	}
 
-	template<typename T>
-	Set<T> ReverseOrderedThreeVecDifference<T>::SymmetricDiff(const Set<T>& s1, const Set<T>& s2)
+	template<typename T, class P>
+	Set<T> ReverseOrderedThreeVecDifference<T, P>::SymmetricDiff(const Set<T>& s1, const Set<T>& s2)
 	{
 		Set<T> out;
 		auto first = s1.begin(), second = s2.begin();
@@ -67,8 +69,8 @@ namespace net_games
 		return out;
 	}
 
-	template<typename T>
-	void ReverseOrderedThreeVecDifference<T>::FillUniques(Set<T> diff, const Set<T>& s1, const Set<T>& s2, const Set<T>& s3)
+	template<typename T, class P>
+	void ReverseOrderedThreeVecDifference<T, P>::FillUniques(Set<T> diff, const Set<T>& s1, const Set<T>& s2, const Set<T>& s3)
 	{
 		auto first = diff.begin(), last = diff.end();
 		for (; first != last; ++first)

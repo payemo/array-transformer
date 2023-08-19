@@ -31,10 +31,10 @@ namespace net_games
 	private:
 		std::map<String, Operation> operations =
 		{
-			{ "-s", Operation::SORT_ARRAYS },
-			{ "-i --all", Operation::INTERSECT_THREE },
-			{ "-i --two-larget", Operation::INTERSECT_TWO },
-			{ "-sd", Operation::SYM_DIFF }
+			{ "--sort", Operation::SORT_ARRAYS },
+			{ "--intersect-all", Operation::INTERSECT_THREE },
+			{ "-iintersect-two-largest", Operation::INTERSECT_TWO },
+			{ "--diff", Operation::SYM_DIFF }
 		};
 	};
 

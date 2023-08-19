@@ -8,14 +8,14 @@ namespace net_games
 {
 	// PUBLIC ROUTINE
 
-	template<typename T>
-	TwoVectorIntersector<T>::TwoVectorIntersector()
-		: BaseVectorIntersector<T>(new VectorSorter<T>())
+	template<typename T, class P>
+	TwoVectorIntersector<T, P>::TwoVectorIntersector()
+		: BaseVectorIntersector<T, P>(new VectorSorter<T, P>())
 	{
 	}
 
-	template<typename T>
-	void TwoVectorIntersector<T>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
+	template<typename T, class P>
+	void TwoVectorIntersector<T, P>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P print)
 	{
 		std::pair<Vec<T>*, Vec<T>*> twoLargest = GetTwoLargest(v1, v2, v3);
 
@@ -23,13 +23,15 @@ namespace net_games
 		Vec<T>* vp2 = twoLargest.second;
 
 		Vec<T> dummy{};
-		this->sorter_->Compute(*vp, *vp2, dummy);
+		this->sorter_->Compute(*vp, *vp2, dummy, print);
 
 		Intersect(*vp, *vp2);
+
+		print(this->out_);
 	}
 
-	template<typename T>
-	void TwoVectorIntersector<T>::Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
+	template<typename T, class P>
+	void TwoVectorIntersector<T, P>::Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
 	{
 		auto twoLargest = GetTwoLargest(v1, v2, v3);
 
@@ -44,8 +46,8 @@ namespace net_games
 
 	// PROTECTED ROUTINE
 
-	template<typename T>
-	void TwoVectorIntersector<T>::Intersect(Vec<T>& v1, Vec<T>& v2)
+	template<typename T, class P>
+	void TwoVectorIntersector<T, P>::Intersect(Vec<T>& v1, Vec<T>& v2)
 	{
 		VecIter<T> first = v1.begin(), fLast = v1.end();
 		VecIter<T> second = v2.begin(), sLast = v2.end();
@@ -67,8 +69,8 @@ namespace net_games
 		}
 	}
 
-	template<typename T>
-	std::pair<Vec<T>*, Vec<T>*> TwoVectorIntersector<T>::GetTwoLargest(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) const
+	template<typename T, class P>
+	std::pair<Vec<T>*, Vec<T>*> TwoVectorIntersector<T, P>::GetTwoLargest(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) const
 	{
 		// tackle with pointers a bit to avoid redundant copies
 		std::size_t l1 = v1.size(), l2 = v2.size(), l3 = v3.size();

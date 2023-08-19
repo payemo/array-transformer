@@ -2,16 +2,20 @@
 
 namespace net_games
 {
-	template<typename T>
-	void VectorSorter<T>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
+	template<typename T, class P>
+	void VectorSorter<T, P>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P printer)
 	{
 		QSort(v1.begin(), 0, v1.size() - 1);
 		QSort(v2.begin(), 0, v2.size() - 1);
 		QSort(v3.begin(), 0, v3.size() - 1);
+
+		printer(v1);
+		printer(v2);
+		printer(v3);
 	}
 
-	template<typename T>
-	void VectorSorter<T>::QSort(VecIter<T> it, int from, int to)
+	template<typename T, class P>
+	void VectorSorter<T, P>::QSort(VecIter<T> it, int from, int to)
 	{
 		if (from >= 0 && to >= 0 && from < to)
 		{
@@ -21,8 +25,8 @@ namespace net_games
 		}
 	}
 
-	template<typename T>
-	int VectorSorter<T>::Partition(VecIter<T> it, int from, int to)
+	template<typename T, class P>
+	int VectorSorter<T, P>::Partition(VecIter<T> it, int from, int to)
 	{
 		int m = from + ((to - to) / 2);
 		int p = *(it + m);
@@ -42,8 +46,8 @@ namespace net_games
 		return j;
 	}
 
-	template<typename T>
-	void VectorSorter<T>::Swap(VecIter<T> a, VecIter<T> b)
+	template<typename T, class P>
+	void VectorSorter<T, P>::Swap(VecIter<T> a, VecIter<T> b)
 	{
 		auto tmp = std::move(*a);
 		*a = std::move(*b);
