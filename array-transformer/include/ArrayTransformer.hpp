@@ -12,7 +12,7 @@ namespace net_games
 	using VecIter = typename std::vector<T>::iterator;
 
 	template<typename T>
-	class VectorTransformer
+	class ArrayTransformer
 	{
 	public:
 		virtual void Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) = 0;

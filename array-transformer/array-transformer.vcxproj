@@ -141,7 +141,7 @@
     <ClInclude Include="include\BaseVectorIntersector.hpp" />
     <ClInclude Include="include\ThreeVectorIntersector.hpp" />
     <ClInclude Include="include\VectorSorter.hpp" />
-    <ClInclude Include="include\VectorTransformer.hpp" />
+    <ClInclude Include="include\ArrayTransformer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

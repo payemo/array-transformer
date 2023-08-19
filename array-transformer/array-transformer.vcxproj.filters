@@ -35,7 +35,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\VectorTransformer.hpp">
+    <ClInclude Include="include\ArrayTransformer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\VectorSorter.hpp">

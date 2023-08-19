@@ -15,7 +15,7 @@ namespace net_games
 		Set<T> diff1 = SymmetricDiff(s1, s2);
 		Set<T> diff2 = SymmetricDiff(diff1, s3);
 
-		FillUnique(diff2, s1, s2, s3);
+		FillUniques(diff2, s1, s2, s3);
 	}
 
 	template<typename T>
@@ -30,7 +30,7 @@ namespace net_games
 		Set<T> diff2;
 		std::set_symmetric_difference(diff.begin(), diff.end(), s3.begin(), s3.end(), std::inserter(diff2, diff2.begin()));
 
-		FillUnique(diff2, s1, s2, s3);
+		FillUniques(diff2, s1, s2, s3);
 	}
 
 	template<typename T>
@@ -68,7 +68,7 @@ namespace net_games
 	}
 
 	template<typename T>
-	void ReverseOrderedThreeVecDifference<T>::FillUnique(Set<T> diff, const Set<T>& s1, const Set<T>& s2, const Set<T>& s3)
+	void ReverseOrderedThreeVecDifference<T>::FillUniques(Set<T> diff, const Set<T>& s1, const Set<T>& s2, const Set<T>& s3)
 	{
 		auto first = diff.begin(), last = diff.end();
 		for (; first != last; ++first)

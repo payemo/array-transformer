@@ -12,15 +12,13 @@ namespace net_games
 	template<typename T> using ConstListIter = typename std::list<T>::const_iterator;
 
 	template<typename T>
-	class ReverseOrderedThreeVecDifference : public VectorTransformer<T>
+	class ReverseOrderedThreeVecDifference : public ArrayTransformer<T>
 	{
 	public:
 		ReverseOrderedThreeVecDifference() { };
 
 		void Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) override;
 		void Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3);
-
-		inline const List<T>& Result() const { return out_; }
 
 	protected:
 		Set<T> SymmetricDiff(const Set<T>& v1, const Set<T>& v2);
