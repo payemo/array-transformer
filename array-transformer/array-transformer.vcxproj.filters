@@ -33,6 +33,9 @@
     <ClCompile Include="src\ReverseOrderedThreeVecDifference.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ArrayTransformerFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ArrayTransformer.hpp">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ReverseOrderedThreeVecDifference.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ArrayTransformerFactory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

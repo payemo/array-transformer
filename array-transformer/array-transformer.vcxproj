@@ -130,11 +130,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ArrayTransformerFactory.cpp" />
     <ClCompile Include="src\BaseVectorIterator.cpp" />
     <ClCompile Include="src\ReverseOrderedThreeVecDifference.cpp" />
     <ClCompile Include="src\TheeVectorIntersector.cpp" />
     <ClCompile Include="src\TwoVectorIntersector.cpp" />
     <ClCompile Include="src\VectorSorter.cpp" />
+    <ClInclude Include="include\ArrayTransformerFactory.hpp" />
     <ClInclude Include="include\ReverseOrderedThreeVecDifference.hpp" />
     <ClInclude Include="include\TwoVectorIntersector.hpp" />
     <ClCompile Include="main.cpp" />
