@@ -33,13 +33,6 @@ namespace ng
 
 		while (true)
 		{
-			/*
-			"--exit",
-			"--sort",
-			"--intersect-all",
-			"-intersect-two-largest",
-			"--diff",
-			*/
 			std::string cmd;
 			std::cout << "Command: ";
 			std::cin >> cmd;
