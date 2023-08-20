@@ -74,6 +74,7 @@ namespace ng
 	{
 		std::size_t l1 = v1.size(), l2 = v2.size(), l3 = v3.size();
 
+		// Bug: same size of vectors.
 		std::map<std::size_t, Vec<T>*> m = {
 			{ l1, &v1 },
 			{ l2, &v2 },

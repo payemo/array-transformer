@@ -36,6 +36,9 @@
     <ClCompile Include="src\ArrayTransformerFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ArgumentParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ArrayTransformer.hpp">
@@ -73,7 +76,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="content\7_7_4.txt" />
+    <CopyFileToFolders Include="content\small.txt" />
     <CopyFileToFolders Include="content\bigger1.txt" />
   </ItemGroup>
 </Project>

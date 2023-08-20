@@ -2,6 +2,7 @@
 
 #include <string>
 #include <map>
+#include "ArgumentParser.hpp"
 #include "ArrayTransformer.hpp"
 
 namespace ng
@@ -9,33 +10,13 @@ namespace ng
 	using String = typename std::string;
 
 	template<typename T = double>
-	class ArrayTransformerFactory
+	struct ArrayTransformerFactory
 	{
-	public:
-		enum class Operation
-		{
-			SORT_ARRAYS,
-			INTERSECT_TWO,
-			INTERSECT_THREE,
-			SYM_DIFF
-		};
+		ArrayTransformerFactory() = default;
+		ArrayTransformerFactory(const ArrayTransformerFactory&) = delete;
+		ArrayTransformerFactory& operator=(const ArrayTransformerFactory&) = delete;
 
-	public:
-		ArrayTransformerFactory(const String& operation);
-
-		ArrayTransformer<T>* CreateTransformer();
-
-	private:
-		Operation op_;
-
-	private:
-		std::map<String, Operation> operations =
-		{
-			{ "--sort", Operation::SORT_ARRAYS },
-			{ "--intersect-all", Operation::INTERSECT_THREE },
-			{ "-intersect-two-largest", Operation::INTERSECT_TWO },
-			{ "--diff", Operation::SYM_DIFF }
-		};
+		static ArrayTransformer<T>* CreateTransformer(Operation op);
 	};
 
 

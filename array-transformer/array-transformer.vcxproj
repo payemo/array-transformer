@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ArgumentParser.cpp" />
     <ClCompile Include="src\ArrayTransformerFactory.cpp" />
     <ClCompile Include="src\BaseVectorIterator.cpp" />
     <ClCompile Include="src\ReverseOrderedThreeVecDifference.cpp" />
@@ -150,7 +151,7 @@
     <ClInclude Include="include\ArrayTransformer.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="content\7_7_4.txt">
+    <CopyFileToFolders Include="content\small.txt">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </CopyFileToFolders>
   </ItemGroup>

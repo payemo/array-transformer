@@ -6,15 +6,9 @@
 namespace ng
 {
 	template<typename T>
-	ArrayTransformerFactory<T>::ArrayTransformerFactory(const String& operation)
+	ArrayTransformer<T>* ArrayTransformerFactory<T>::CreateTransformer(Operation op)
 	{
-		this->op_ = operations[operation];
-	}
-
-	template<typename T>
-	ArrayTransformer<T>* ArrayTransformerFactory<T>::CreateTransformer()
-	{
-		switch (op_)
+		switch (op)
 		{
 		case Operation::SORT_ARRAYS:
 			return new VectorSorter<T>();
@@ -29,7 +23,6 @@ namespace ng
 		}
 	}
 
-	template class ArrayTransformerFactory<>;
-	template ArrayTransformerFactory<>::ArrayTransformerFactory(const String&);
-	template ArrayTransformer<>* ArrayTransformerFactory<>::CreateTransformer();
+	template struct ArrayTransformerFactory<>;
+	template ArrayTransformer<>* ArrayTransformerFactory<>::CreateTransformer(Operation op);
 }

@@ -14,6 +14,34 @@ namespace ng
 		{
 			std::vector<std::vector<T>> out;
 
+			/*std::vector<T> vec;
+			std::string num;
+			bool neg = false;
+
+			while (true)
+			{
+				char ch = fs.ReadChar();
+
+				if (std::isdigit(ch))
+				{
+					if (neg)
+					{
+						num += neg;
+						neg = !neg;
+					}
+					num += ch;
+				}
+				else if ((ch == ' ' || ch == ',') && !num.empty())
+				{
+					vec.push_back(std::stod(num));
+					num = "";
+				}
+				else if (ch == '\n')
+				{
+					out.push_back(vec);
+				}
+			}*/
+
 			std::vector<T> vec;
 			std::string num;
 			char ch;
@@ -31,6 +59,7 @@ namespace ng
 				}
 				else if (ch == '\n')
 				{
+					vec.push_back(std::stod(num));
 					out.push_back(vec);
 					vec.clear();
 					num = "";
@@ -46,7 +75,7 @@ namespace ng
 				}
 			}
 
-			// set lasst number
+			// set last number
 			if (ch == EOF && !num.empty())
 			{
 				vec.push_back(std::stod(num));

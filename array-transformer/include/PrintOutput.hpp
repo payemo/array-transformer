@@ -10,11 +10,11 @@ namespace ng
 		template<template<typename...> class V, typename T = double>
 		void operator()(const V<T>& elems) const
 		{
+			std::cout << "Result: ";
 			for (const auto& elem : elems)
 			{
 				std::cout << elem << " ";
 			}
-			std::cout << std::endl;
 			std::cout << std::endl;
 		}
 	};

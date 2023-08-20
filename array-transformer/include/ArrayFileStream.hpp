@@ -12,8 +12,8 @@ namespace ng
 	{
 	public:
 		explicit ArrayFileStream(const char* filePath)
-			: fileName(filePath)
 		{
+			fs.open(filePath);
 		}
 
 		~ArrayFileStream() { fs.close(); }
