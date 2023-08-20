@@ -1,9 +1,9 @@
 #pragma once
 #include "BaseVectorIntersector.hpp"
 
-namespace net_games
+namespace ng
 {
-	template<typename T, class P = Printer<T>>
+	template<typename T = double, class P = PrintOutput<T>>
 	class ThreeVectorIntersector : public BaseVectorIntersector<T, P>
 	{
 	public:

@@ -4,11 +4,11 @@
 #include <map>
 #include "ArrayTransformer.hpp"
 
-namespace net_games
+namespace ng
 {
 	using String = typename std::string;
 
-	template<typename T>
+	template<typename T = double>
 	class ArrayTransformerFactory
 	{
 	public:
@@ -33,7 +33,7 @@ namespace net_games
 		{
 			{ "--sort", Operation::SORT_ARRAYS },
 			{ "--intersect-all", Operation::INTERSECT_THREE },
-			{ "-iintersect-two-largest", Operation::INTERSECT_TWO },
+			{ "-intersect-two-largest", Operation::INTERSECT_TWO },
 			{ "--diff", Operation::SYM_DIFF }
 		};
 	};

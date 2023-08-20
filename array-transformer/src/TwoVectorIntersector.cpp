@@ -4,7 +4,7 @@
 #include <iterator>
 #include "TwoVectorIntersector.hpp"
 
-namespace net_games
+namespace ng
 {
 	// PUBLIC ROUTINE
 
@@ -72,7 +72,6 @@ namespace net_games
 	template<typename T, class P>
 	std::pair<Vec<T>*, Vec<T>*> TwoVectorIntersector<T, P>::GetTwoLargest(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) const
 	{
-		// tackle with pointers a bit to avoid redundant copies
 		std::size_t l1 = v1.size(), l2 = v2.size(), l3 = v3.size();
 
 		std::map<std::size_t, Vec<T>*> m = {
@@ -89,9 +88,7 @@ namespace net_games
 		return std::make_pair(m[minMax.second], m[sb]);
 	}
 
-	template TwoVectorIntersector<int>::TwoVectorIntersector();
-	template TwoVectorIntersector<unsigned int>::TwoVectorIntersector();
+	template TwoVectorIntersector<>::TwoVectorIntersector();
 
-	template class TwoVectorIntersector<int>;
-	template class TwoVectorIntersector<unsigned int>;
+	template class TwoVectorIntersector<>;
 }

@@ -59,17 +59,21 @@
     <ClInclude Include="include\ArrayTransformerFactory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Printer.hpp">
+    <ClInclude Include="include\PrintOutput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ArrayFileStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ArrayFileBuf.hpp">
+    <ClInclude Include="include\ArrayFileParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ArgumentParser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="content\test.txt" />
+    <CopyFileToFolders Include="content\7_7_4.txt" />
+    <CopyFileToFolders Include="content\bigger1.txt" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #include "BaseVectorIntersector.hpp"
 
-namespace net_games
+namespace ng
 {
 	// PUBLIC DEFINITIONS
 
@@ -22,9 +22,5 @@ namespace net_games
 
 	// DESTRUCTOR TEMPLATE
 
-	template BaseVectorIntersector<int>::BaseVectorIntersector(VectorSorter<int>* sorter);
-	template BaseVectorIntersector<unsigned int>::BaseVectorIntersector(VectorSorter<unsigned int>* sorter);
-
-	template BaseVectorIntersector<int>::~BaseVectorIntersector();
-	template BaseVectorIntersector<unsigned int>::~BaseVectorIntersector();
+	template BaseVectorIntersector<>::BaseVectorIntersector(VectorSorter<>*);
 }

@@ -3,7 +3,7 @@
 #include <list>
 #include "VectorSorter.hpp"
 
-namespace net_games
+namespace ng
 {
 	template<typename T> using Set = typename std::set<T>;
 	template<typename T> using ConstSetIter = typename std::set<T>::const_iterator;
@@ -11,7 +11,7 @@ namespace net_games
 	template<typename T> using List = typename std::list<T>;
 	template<typename T> using ConstListIter = typename std::list<T>::const_iterator;
 
-	template<typename T, class P = Printer<T>>
+	template<typename T = double, class P = PrintOutput<T>>
 	class ReverseOrderedThreeVecDifference : public ArrayTransformer<T, P>
 	{
 	public:

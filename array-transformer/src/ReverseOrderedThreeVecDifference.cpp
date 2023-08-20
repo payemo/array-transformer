@@ -3,7 +3,7 @@
 #include <iterator>
 #include "ReverseOrderedThreeVecDifference.hpp"
 
-namespace net_games
+namespace ng
 {
 	template<typename T, class P>
 	void ReverseOrderedThreeVecDifference<T, P>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P print)
@@ -84,9 +84,6 @@ namespace net_games
 		}
 	}
 
-	template ReverseOrderedThreeVecDifference<int>::ReverseOrderedThreeVecDifference();
-	template ReverseOrderedThreeVecDifference<unsigned int>::ReverseOrderedThreeVecDifference();
-
-	template void ReverseOrderedThreeVecDifference<int>::Compute_STL(Vec<int>& v1, Vec<int>& v2, Vec<int>& v3);
-	template void ReverseOrderedThreeVecDifference<unsigned int>::Compute_STL(Vec<unsigned int>& v1, Vec<unsigned int>& v2, Vec<unsigned int>& v3);
+	template ReverseOrderedThreeVecDifference<>::ReverseOrderedThreeVecDifference();
+	template void ReverseOrderedThreeVecDifference<>::Compute_STL(Vec<>& v1, Vec<>& v2, Vec<>& v3);
 }

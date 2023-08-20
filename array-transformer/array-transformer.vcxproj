@@ -136,10 +136,11 @@
     <ClCompile Include="src\TheeVectorIntersector.cpp" />
     <ClCompile Include="src\TwoVectorIntersector.cpp" />
     <ClCompile Include="src\VectorSorter.cpp" />
+    <ClInclude Include="include\ArgumentParser.hpp" />
+    <ClInclude Include="include\ArrayFileParser.hpp" />
     <ClInclude Include="include\ArrayFileStream.hpp" />
-    <ClInclude Include="include\ArrayFileBuf.hpp" />
     <ClInclude Include="include\ArrayTransformerFactory.hpp" />
-    <ClInclude Include="include\Printer.hpp" />
+    <ClInclude Include="include\PrintOutput.hpp" />
     <ClInclude Include="include\ReverseOrderedThreeVecDifference.hpp" />
     <ClInclude Include="include\TwoVectorIntersector.hpp" />
     <ClCompile Include="main.cpp" />
@@ -149,7 +150,12 @@
     <ClInclude Include="include\ArrayTransformer.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="content\test.txt">
+    <CopyFileToFolders Include="content\7_7_4.txt">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="content\bigger1.txt">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </CopyFileToFolders>
   </ItemGroup>

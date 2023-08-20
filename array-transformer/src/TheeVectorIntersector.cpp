@@ -3,7 +3,7 @@
 #include <set>
 #include "ThreeVectorIntersector.hpp"
 
-namespace net_games
+namespace ng
 {
 	// PUBLIC ROUTINE
 
@@ -65,6 +65,5 @@ namespace net_games
 		}
 	}
 
-	template ThreeVectorIntersector<int>::ThreeVectorIntersector();
-	template ThreeVectorIntersector<unsigned int>::ThreeVectorIntersector();
+	template ThreeVectorIntersector<>::ThreeVectorIntersector();
 }

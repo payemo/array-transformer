@@ -1,6 +1,6 @@
 #include "VectorSorter.hpp"
 
-namespace net_games
+namespace ng
 {
 	template<typename T, class P>
 	void VectorSorter<T, P>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P printer)
@@ -54,6 +54,7 @@ namespace net_games
 		*b = std::move(tmp);
 	}
 
-	template class VectorSorter<int>;
-	template class VectorSorter<unsigned int>;
+	template class VectorSorter<>;
+	/*template class VectorSorter<int>;
+	template class VectorSorter<unsigned int>;*/
 }

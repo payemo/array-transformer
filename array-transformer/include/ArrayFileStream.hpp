@@ -3,20 +3,17 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include <string>
+#include <iterator>
 
-namespace net_games
+namespace ng
 {
 	class ArrayFileStream
 	{
 	public:
 		explicit ArrayFileStream(const char* filePath)
+			: fileName(filePath)
 		{
-			fs.open(filePath);
-
-			if (fs.is_open())
-			{
-				std::cout << "HERE!" << std::endl;
-			}
 		}
 
 		~ArrayFileStream() { fs.close(); }
@@ -29,7 +26,26 @@ namespace net_games
 
 		inline const bool IsValid() const { return fs.is_open(); }
 
+		bool ReadLine(std::string& line)
+		{
+			if (IsValid())
+			{
+				return static_cast<bool>(std::getline(fs, line, ','));
+			}
+			return false;
+		}
+
+		char ReadChar()
+		{
+			if (IsValid())
+			{
+				return fs.get();
+			}
+			return '\n';
+		}
+
 	private:
+		const char* fileName;
 		std::ifstream fs;
 	};
 }

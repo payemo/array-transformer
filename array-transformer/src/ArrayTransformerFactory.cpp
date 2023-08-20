@@ -3,7 +3,7 @@
 #include "ThreeVectorIntersector.hpp"
 #include "ReverseOrderedThreeVecDifference.hpp"
 
-namespace net_games
+namespace ng
 {
 	template<typename T>
 	ArrayTransformerFactory<T>::ArrayTransformerFactory(const String& operation)
@@ -29,12 +29,7 @@ namespace net_games
 		}
 	}
 
-	template class ArrayTransformerFactory<int>;
-	template class ArrayTransformerFactory<unsigned int>;
-
-	template ArrayTransformerFactory<int>::ArrayTransformerFactory(const String&);
-	template ArrayTransformerFactory<unsigned int>::ArrayTransformerFactory(const String&);
-
-	template ArrayTransformer<int>* ArrayTransformerFactory<int>::CreateTransformer();
-	template ArrayTransformer<unsigned int>* ArrayTransformerFactory<unsigned int>::CreateTransformer();
+	template class ArrayTransformerFactory<>;
+	template ArrayTransformerFactory<>::ArrayTransformerFactory(const String&);
+	template ArrayTransformer<>* ArrayTransformerFactory<>::CreateTransformer();
 }

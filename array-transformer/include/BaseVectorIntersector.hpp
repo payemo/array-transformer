@@ -3,9 +3,9 @@
 #include <algorithm>
 #include "VectorSorter.hpp"
 
-namespace net_games
+namespace ng
 {
-	template<typename T, class P = Printer<T>>
+	template<typename T = double, class P = PrintOutput<T>>
 	class BaseVectorIntersector : public ArrayTransformer<T, P>
 	{
 	public:
