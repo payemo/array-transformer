@@ -6,7 +6,7 @@ Program is working in a loop until the user won't type an exit command. If a wro
 ## Commands
 There are four main procedures that transform input arrays:
   - sort (ASC).
-  - intersection of two largest.
+  - intersection of two largest (if input arrays have equal sizes then first two found will be used).
   - intersection of all.
   - create an array sorted in a reversed order that contains a unique elements of each of three input arrays.
 
