@@ -16,6 +16,6 @@ namespace ng
 	protected:
 		void Intersect(Vec<T>& v1, Vec<T>& v2);
 
-		Pair<Vec<T>, Vec<T>> GetTwoLargest(Vec<Vec<T>>& vecs);
+		void DescSortBySize(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3);
 	};
 }

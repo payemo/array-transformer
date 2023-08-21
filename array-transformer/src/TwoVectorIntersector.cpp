@@ -18,18 +18,13 @@ namespace ng
 	template<typename T, class P>
 	void TwoVectorIntersector<T, P>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P print)
 	{
-		Vec<Vec<T>> vecs = { {v1, v2, v3} };
-		auto twoLargest = GetTwoLargest(vecs);
+		// to be sure that the first and second vectors are the largest
+		DescSortBySize(v1, v2, v3);
 
-		Vec<T> vp = twoLargest.first, vp2 = twoLargest.second;
+		Vec<T> dummy{};
+		this->sorter_->Compute(v1, v2, dummy, print);
 
-		if (!vp.empty() && !vp2.empty())
-		{
-			Vec<T> dummy{};
-			this->sorter_->Compute(vp, vp2, dummy, print);
-
-			Intersect(vp, vp2);
-		}
+		Intersect(v1, v2);
 
 		print(this->out_);
 	}
@@ -37,14 +32,11 @@ namespace ng
 	template<typename T, class P>
 	void TwoVectorIntersector<T, P>::Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
 	{
-		Vec<Vec<T>> vecs = { {v1, v2, v3} };
-		auto twoLargest = GetTwoLargest(vecs);
+		Vec<Vec<T>*> vecs = { {&v1, &v2, &v3} };
+		DescSortBySize(v1, v2, v3);
 
-		Vec<T> vp = twoLargest.first, vp2 = twoLargest.second;
-		std::set<T> s1(vp.begin(), vp.end());
-
-		vp = twoLargest.second;
-		std::set<T> s2(vp.begin(), vp.end());
+		std::set<T> s1(v1.begin(), v2.end());
+		std::set<T> s2(v1.begin(), v2.end());
 
 		std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(this->out_));
 	}
@@ -75,23 +67,20 @@ namespace ng
 	}
 
 	template<typename T, class P>
-	Pair<Vec<T>, Vec<T>> TwoVectorIntersector<T, P>::GetTwoLargest(Vec<Vec<T>>& vecs)
+	void TwoVectorIntersector<T, P>::DescSortBySize(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
 	{
-		Vec<T> l1, l2;
-		for (Vec<T>& v : vecs)
+		if (v1.size() < v2.size())
 		{
-			if (v.size() > l1.size())
-			{
-				l2.swap(l1);
-				l1.swap(v);
-			}
-			else if (v.size() > l2.size())
-			{
-				l2.swap(v);
-			}
+			v1.swap(v2);
 		}
-
-		return std::make_pair(l1, l2);
+		if (v2.size() < v3.size())
+		{
+			v2.swap(v3);
+		}
+		if (v1.size() < v2.size())
+		{
+			v1.swap(v2);
+		}
 	}
 
 	template TwoVectorIntersector<>::TwoVectorIntersector();
