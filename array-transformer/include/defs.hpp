@@ -4,6 +4,7 @@
 #include <set>
 #include <list>
 #include <string>
+#include <utility>
 
 namespace ng
 {
@@ -22,6 +23,10 @@ namespace ng
 
 	template<typename T>
 	using List = typename std::list<T>;
+
 	template<typename T>
 	using ConstListIter = typename std::list<T>::const_iterator;
+
+	template<class C1, class C2>
+	using Pair = typename std::pair<C1, C2>;
 }

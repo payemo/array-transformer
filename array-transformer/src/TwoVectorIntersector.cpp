@@ -2,6 +2,7 @@
 #include <map>
 #include <algorithm>
 #include <iterator>
+#include <variant>
 #include "TwoVectorIntersector.hpp"
 
 namespace ng
@@ -17,15 +18,18 @@ namespace ng
 	template<typename T, class P>
 	void TwoVectorIntersector<T, P>::Compute(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3, P print)
 	{
-		std::pair<Vec<T>*, Vec<T>*> twoLargest = GetTwoLargest(v1, v2, v3);
+		Vec<Vec<T>> vecs = { {v1, v2, v3} };
+		auto twoLargest = GetTwoLargest(vecs);
 
-		Vec<T>* vp = twoLargest.first;
-		Vec<T>* vp2 = twoLargest.second;
+		Vec<T> vp = twoLargest.first, vp2 = twoLargest.second;
 
-		Vec<T> dummy{};
-		this->sorter_->Compute(*vp, *vp2, dummy, print);
+		if (!vp.empty() && !vp2.empty())
+		{
+			Vec<T> dummy{};
+			this->sorter_->Compute(vp, vp2, dummy, print);
 
-		Intersect(*vp, *vp2);
+			Intersect(vp, vp2);
+		}
 
 		print(this->out_);
 	}
@@ -33,13 +37,14 @@ namespace ng
 	template<typename T, class P>
 	void TwoVectorIntersector<T, P>::Compute_STL(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3)
 	{
-		auto twoLargest = GetTwoLargest(v1, v2, v3);
+		Vec<Vec<T>> vecs = { {v1, v2, v3} };
+		auto twoLargest = GetTwoLargest(vecs);
 
-		Vec<T>* vp = twoLargest.first;
-		std::set<T> s1(vp->begin(), vp->end());
+		Vec<T> vp = twoLargest.first, vp2 = twoLargest.second;
+		std::set<T> s1(vp.begin(), vp.end());
 
 		vp = twoLargest.second;
-		std::set<T> s2(vp->begin(), vp->end());
+		std::set<T> s2(vp.begin(), vp.end());
 
 		std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(this->out_));
 	}
@@ -70,23 +75,23 @@ namespace ng
 	}
 
 	template<typename T, class P>
-	std::pair<Vec<T>*, Vec<T>*> TwoVectorIntersector<T, P>::GetTwoLargest(Vec<T>& v1, Vec<T>& v2, Vec<T>& v3) const
+	Pair<Vec<T>, Vec<T>> TwoVectorIntersector<T, P>::GetTwoLargest(Vec<Vec<T>>& vecs)
 	{
-		std::size_t l1 = v1.size(), l2 = v2.size(), l3 = v3.size();
+		Vec<T> l1, l2;
+		for (Vec<T>& v : vecs)
+		{
+			if (v.size() > l1.size())
+			{
+				l2.swap(l1);
+				l1.swap(v);
+			}
+			else if (v.size() > l2.size())
+			{
+				l2.swap(v);
+			}
+		}
 
-		// Bug: same size of vectors.
-		std::map<std::size_t, Vec<T>*> m = {
-			{ l1, &v1 },
-			{ l2, &v2 },
-			{ l3, &v3 }
-		};
-
-		// (minSize, maxSize)
-		auto minMax = std::minmax({ l1, l2, l3 });
-		// second biggest
-		std::size_t sb = (l1 + l2 + l3) - minMax.second - minMax.first;
-
-		return std::make_pair(m[minMax.second], m[sb]);
+		return std::make_pair(l1, l2);
 	}
 
 	template TwoVectorIntersector<>::TwoVectorIntersector();
