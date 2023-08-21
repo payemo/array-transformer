@@ -1,10 +1,10 @@
 #pragma once
 #include <map>
-#include <string>
+#include "defs.hpp"
 
 namespace ng
 {
-	enum class Operation
+	enum class Command
 	{
 		BREAK,
 		SORT_ARRAYS,
@@ -19,6 +19,6 @@ namespace ng
 		static bool Parse(int argc, char** argv);
 
 	private:
-		static std::map<std::string, Operation> operations;
+		static std::map<String, Command> commandList;
 	};
 }

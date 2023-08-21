@@ -1,17 +1,10 @@
 #pragma once
 
-#include <vector>
-#include <set>
+#include "defs.hpp"
 #include "PrintOutput.hpp"
 
 namespace ng
 {
-	template<typename T = double>
-	using Vec = typename std::vector<T>;
-
-	template<typename T = double>
-	using VecIter = typename std::vector<T>::iterator;
-
 	template<typename T = double, class P = PrintOutput<T>>
 	class ArrayTransformer
 	{

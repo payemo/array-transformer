@@ -7,8 +7,6 @@
 
 namespace ng
 {
-	using String = typename std::string;
-
 	template<typename T = double>
 	struct ArrayTransformerFactory
 	{
@@ -16,7 +14,7 @@ namespace ng
 		ArrayTransformerFactory(const ArrayTransformerFactory&) = delete;
 		ArrayTransformerFactory& operator=(const ArrayTransformerFactory&) = delete;
 
-		static ArrayTransformer<T>* CreateTransformer(Operation op);
+		static ArrayTransformer<T>* CreateTransformer(Command op);
 	};
 
 

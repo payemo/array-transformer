@@ -10,12 +10,12 @@ namespace ng
 	{
 	public:
 		template<typename T = double>
-		static std::vector<std::vector<T>> Parse(ArrayFileStream& fs)
+		static Vec<Vec<T>> Parse(ArrayFileStream& fs)
 		{
-			std::vector<std::vector<T>> out;
+			Vec<Vec<T>> out;
 			
-			std::vector<T> vec;
-			std::string num;
+			Vec<T> vec;
+			String num;
 			char ch;
 			bool neg = false;
 			while ((ch = fs.ReadChar()) != EOF)

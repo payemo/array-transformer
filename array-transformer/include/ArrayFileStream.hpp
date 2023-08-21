@@ -26,7 +26,7 @@ namespace ng
 
 		inline const bool IsValid() const { return fs.is_open(); }
 
-		bool ReadLine(std::string& line)
+		bool ReadLine(String& line)
 		{
 			if (IsValid())
 			{

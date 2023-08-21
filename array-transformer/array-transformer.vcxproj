@@ -141,6 +141,7 @@
     <ClInclude Include="include\ArrayFileParser.hpp" />
     <ClInclude Include="include\ArrayFileStream.hpp" />
     <ClInclude Include="include\ArrayTransformerFactory.hpp" />
+    <ClInclude Include="include\defs.hpp" />
     <ClInclude Include="include\PrintOutput.hpp" />
     <ClInclude Include="include\ReverseOrderedThreeVecDifference.hpp" />
     <ClInclude Include="include\TwoVectorIntersector.hpp" />

@@ -5,13 +5,13 @@
 
 namespace ng
 {
-	std::map<std::string, Operation> ArgumentParser::operations =
+	std::map<String, Command> ArgumentParser::commandList =
 	{
-		{ "--exit",					 Operation::BREAK },
-		{ "--sort",					 Operation::SORT_ARRAYS },
-		{ "--intersect-all",		 Operation::INTERSECT_THREE },
-		{ "--intersect-two-largest", Operation::INTERSECT_TWO },
-		{ "--diff",					 Operation::SYM_DIFF }
+		{ "--exit",					 Command::BREAK },
+		{ "--sort",					 Command::SORT_ARRAYS },
+		{ "--intersect-all",		 Command::INTERSECT_THREE },
+		{ "--intersect-two-largest", Command::INTERSECT_TWO },
+		{ "--diff",					 Command::SYM_DIFF }
 	};
 
 	bool ArgumentParser::Parse(int argc, char** argv)
@@ -25,33 +25,28 @@ namespace ng
 
 		if (!afs.IsValid())
 		{
-			std::cerr << "File " + std::string(*argv) + " cannot be opened." << std::endl;
+			std::cerr << "File " + String(*argv) + " cannot be opened." << std::endl;
 			return false;
 		}
 
-		auto data = ArrayFileParser::Parse(afs);
+		Vec<Vec<>> data = ArrayFileParser::Parse(afs);
 
-		while (true)
+		for (;;)
 		{
-			std::string cmd;
+			String cmdStr;
 			std::cout << "Command: ";
-			std::cin >> cmd;
+			std::cin >> cmdStr;
 
-			if (!operations.count(cmd))
+			if (!commandList.count(cmdStr))
 			{
 				std::cout << "Wrong command..." << std::endl;
+				continue;
 			}
-			else if (operations[cmd] == Operation::BREAK)
-			{
-				break;
-			}
-			else
-			{
-				ArrayTransformer<>* at = ArrayTransformerFactory<>::CreateTransformer(operations[cmd]);
-				at->Compute(data[0], data[1], data[2]);
 
-				std::cout << std::endl;
-			}
+			ArrayTransformer<>* at = ArrayTransformerFactory<>::CreateTransformer(commandList[cmdStr]);
+			at->Compute(data[0], data[1], data[2]);
+
+			std::cout << std::endl;
 		}
 
 		return true;

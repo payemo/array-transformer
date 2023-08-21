@@ -6,17 +6,17 @@
 namespace ng
 {
 	template<typename T>
-	ArrayTransformer<T>* ArrayTransformerFactory<T>::CreateTransformer(Operation op)
+	ArrayTransformer<T>* ArrayTransformerFactory<T>::CreateTransformer(Command cmd)
 	{
-		switch (op)
+		switch (cmd)
 		{
-		case Operation::SORT_ARRAYS:
+		case Command::SORT_ARRAYS:
 			return new VectorSorter<T>();
-		case Operation::INTERSECT_TWO:
+		case Command::INTERSECT_TWO:
 			return new TwoVectorIntersector<T>();
-		case Operation::INTERSECT_THREE:
+		case Command::INTERSECT_THREE:
 			return new ThreeVectorIntersector<T>();
-		case Operation::SYM_DIFF:
+		case Command::SYM_DIFF:
 			return new ReverseOrderedThreeVecDifference<T>();
 		default:
 			break;
@@ -24,5 +24,5 @@ namespace ng
 	}
 
 	template struct ArrayTransformerFactory<>;
-	template ArrayTransformer<>* ArrayTransformerFactory<>::CreateTransformer(Operation op);
+	template ArrayTransformer<>* ArrayTransformerFactory<>::CreateTransformer(Command op);
 }
