@@ -1,6 +1,7 @@
 #pragma once
-#include <utility> // std::move
 #include "ArrayTransformer.hpp"
+
+#include <utility>
 
 namespace ng
 {

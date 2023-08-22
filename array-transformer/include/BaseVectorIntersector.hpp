@@ -1,7 +1,8 @@
 #pragma once
 
-#include <algorithm>
 #include "VectorSorter.hpp"
+
+#include <algorithm>
 
 namespace ng
 {

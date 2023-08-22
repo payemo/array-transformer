@@ -1,7 +1,8 @@
-﻿#include <algorithm>
+﻿#include "ThreeVectorIntersector.hpp"
+
+#include <algorithm>
 #include <iterator>
 #include <set>
-#include "ThreeVectorIntersector.hpp"
 
 namespace ng
 {

@@ -1,12 +1,15 @@
 #pragma once
 
-#include <string>
-#include <map>
 #include "ArgumentParser.hpp"
 #include "ArrayTransformer.hpp"
 
+#include <string>
+#include <map>
+
 namespace ng
 {
+	using namespace argsparser;
+
 	template<typename T = double>
 	struct ArrayTransformerFactory
 	{

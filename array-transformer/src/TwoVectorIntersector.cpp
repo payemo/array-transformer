@@ -1,9 +1,9 @@
+#include "TwoVectorIntersector.hpp"
+
 #include <set>
 #include <map>
 #include <algorithm>
 #include <iterator>
-#include <variant>
-#include "TwoVectorIntersector.hpp"
 
 namespace ng
 {

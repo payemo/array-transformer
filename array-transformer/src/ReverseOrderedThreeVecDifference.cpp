@@ -1,7 +1,8 @@
+#include "ReverseOrderedThreeVecDifference.hpp"
+
 #include <set>
 #include <algorithm>
 #include <iterator>
-#include "ReverseOrderedThreeVecDifference.hpp"
 
 namespace ng
 {

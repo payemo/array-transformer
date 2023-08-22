@@ -4,5 +4,5 @@ using namespace ng;
 
 int main(int argc, char** argv)
 {
-	ArgumentParser::Parse(argc, argv);
+	argsparser::Parse(argc, argv);
 }

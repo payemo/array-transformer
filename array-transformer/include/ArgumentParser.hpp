@@ -1,24 +1,21 @@
 #pragma once
-#include <map>
+
 #include "defs.hpp"
+
+#include <map>
 
 namespace ng
 {
-	enum class Command
+	namespace argsparser
 	{
-		BREAK,
-		SORT_ARRAYS,
-		INTERSECT_TWO,
-		INTERSECT_THREE,
-		SYM_DIFF
-	};
+		enum class Command
+		{
+			SORT_ARRAYS,
+			INTERSECT_TWO,
+			INTERSECT_THREE,
+			SYM_DIFF
+		};
 
-	class ArgumentParser
-	{
-	public:
-		static bool Parse(int argc, char** argv);
-
-	private:
-		static std::map<String, Command> commandList;
-	};
+		bool Parse(int argc, char** argv);
+	}
 }

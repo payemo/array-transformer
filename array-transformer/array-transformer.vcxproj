@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\ArgumentParser.cpp" />
+    <ClCompile Include="src\ArrayFileParser.cpp" />
     <ClCompile Include="src\ArrayTransformerFactory.cpp" />
     <ClCompile Include="src\BaseVectorIterator.cpp" />
     <ClCompile Include="src\ReverseOrderedThreeVecDifference.cpp" />
