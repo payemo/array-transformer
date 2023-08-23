@@ -1,6 +1,7 @@
 #pragma once
 
 #include "VectorSorter.hpp"
+#include <deque>
 
 namespace ng
 {
@@ -18,7 +19,6 @@ namespace ng
 		void FillUniques(Set<T> diff, const Set<T>& s1, const Set<T>& s2, const Set<T>& s3);
 
 	private:
-		// use O(1) for insertion
-		List<T> out_;
+		Deque<T> out_;
 	};
 }

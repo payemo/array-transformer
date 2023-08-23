@@ -11,10 +11,12 @@ namespace ng
 		void operator()(const V<T>& elems) const
 		{
 			std::cout << "Result: ";
-			for (const auto& elem : elems)
+
+			for (auto it = elems.begin(); it != elems.end(); ++it)
 			{
-				std::cout << elem << " ";
+				std::cout << *it << " ";
 			}
+			
 			std::cout << std::endl;
 		}
 	};

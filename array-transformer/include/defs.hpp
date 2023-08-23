@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <deque>
 #include <set>
 #include <list>
 #include <string>
@@ -9,6 +10,9 @@
 namespace ng
 {
 	using String = typename std::string;
+
+	template<typename T>
+	using Deque = typename std::deque<T>;
 
 	template<typename T = double>
 	using Vec = typename std::vector<T>;
