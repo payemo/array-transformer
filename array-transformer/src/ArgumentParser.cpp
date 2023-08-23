@@ -1,4 +1,4 @@
-#include "ArgumentParser.hpp"
+#include "CommandParser.hpp"
 #include "ArrayFileParser.hpp"
 #include "ArrayTransformerFactory.hpp"
 
@@ -6,14 +6,14 @@
 
 namespace ng
 {
-	namespace argsparser
+	namespace cmdparser
 	{
-		std::map<String, Command> transformCommandList =
+		std::map<String, TransformCommand> transformCommandList =
 		{
-			{ "--sort",					 Command::SORT_ARRAYS },
-			{ "--intersect-all",		 Command::INTERSECT_THREE },
-			{ "--intersect-two-largest", Command::INTERSECT_TWO },
-			{ "--diff",					 Command::SYM_DIFF }
+			{ "--sort",					 TransformCommand::SORT_ARRAYS },
+			{ "--intersect-all",		 TransformCommand::INTERSECT_THREE },
+			{ "--intersect-two-largest", TransformCommand::INTERSECT_TWO },
+			{ "--diff",					 TransformCommand::SYM_DIFF }
 		};
 
 		bool Parse(int argc, char** argv)
@@ -36,7 +36,7 @@ namespace ng
 			for (;;)
 			{
 				String cmdStr;
-				std::cout << "Command: ";
+				std::cout << "Enter command: ";
 				std::cin >> cmdStr;
 
 				if (cmdStr == "--exit")

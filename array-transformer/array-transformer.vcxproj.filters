@@ -74,7 +74,7 @@
     <ClInclude Include="include\ArrayFileParser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ArgumentParser.hpp">
+    <ClInclude Include="include\CommandParser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\defs.hpp">

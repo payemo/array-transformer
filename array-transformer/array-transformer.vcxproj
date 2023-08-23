@@ -138,7 +138,7 @@
     <ClCompile Include="src\TheeVectorIntersector.cpp" />
     <ClCompile Include="src\TwoVectorIntersector.cpp" />
     <ClCompile Include="src\VectorSorter.cpp" />
-    <ClInclude Include="include\ArgumentParser.hpp" />
+    <ClInclude Include="include\CommandParser.hpp" />
     <ClInclude Include="include\ArrayFileParser.hpp" />
     <ClInclude Include="include\ArrayFileStream.hpp" />
     <ClInclude Include="include\ArrayTransformerFactory.hpp" />

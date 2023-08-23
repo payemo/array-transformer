@@ -1,14 +1,15 @@
 #pragma once
 
 #include "defs.hpp"
+#include "ArrayFileStream.hpp"
 
 #include <map>
 
 namespace ng
 {
-	namespace argsparser
+	namespace cmdparser
 	{
-		enum class Command
+		enum class TransformCommand
 		{
 			SORT_ARRAYS,
 			INTERSECT_TWO,

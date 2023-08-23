@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ArgumentParser.hpp"
+#include "CommandParser.hpp"
 #include "ArrayTransformer.hpp"
 
 #include <string>
@@ -8,7 +8,7 @@
 
 namespace ng
 {
-	using namespace argsparser;
+	using namespace cmdparser;
 
 	template<typename T = double>
 	struct ArrayTransformerFactory
@@ -17,7 +17,7 @@ namespace ng
 		ArrayTransformerFactory(const ArrayTransformerFactory&) = delete;
 		ArrayTransformerFactory& operator=(const ArrayTransformerFactory&) = delete;
 
-		static ArrayTransformer<T>* CreateTransformer(Command op);
+		static ArrayTransformer<T>* CreateTransformer(TransformCommand op);
 	};
 
 
